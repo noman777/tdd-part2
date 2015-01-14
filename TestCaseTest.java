@@ -1,17 +1,34 @@
 package com.sibi;
 
-public class TestCaseTest {
+public class TestCaseTest extends TestCase {
 	
-	public TestCaseTest(){
-		System.out.println("Started...");
-		WasRun test = new WasRun("testMethod");
-		assert !test.getWasRun();
-		test.run();
+
+	public static void main(String args[]) {
+		System.out.println("Starting...");
+		new TestCaseTest("testRunning");
+		new TestCaseTest("testSetUp");
+		System.out.println("Ended");
+		
+	}
+	
+	public TestCaseTest(String name) {
+		super(name);
+		run();
+	}
+
+	public void setUp() {
+		test = new WasRun("testMethod");
+	}
+
+	public void testRunning() {
+		run();
 		assert test.getWasRun();
 	}
 
-
-	public static void main(String args[]) {
-		new TestCaseTest();
+	public void testSetUp() {
+		run();
+		assert (test.getWasSetUp());
 	}
+
+	WasRun test = null;
 }
