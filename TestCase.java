@@ -4,8 +4,7 @@ import java.lang.reflect.Method;
 
 public abstract class TestCase {
 	protected String name = null;
-	abstract public void setUp();
-	
+
 	public TestCase(String name) {
 		this.name = name;
 	}
@@ -15,8 +14,12 @@ public abstract class TestCase {
 			setUp();
 			Method method = this.getClass().getDeclaredMethod(this.name);
 			method.invoke(this);
+			tearDown();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
 	}
+	
+	abstract public void setUp();
+	abstract public void tearDown();
 }

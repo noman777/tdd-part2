@@ -1,28 +1,27 @@
 package com.sibi;
 
 public class WasRun extends TestCase {
-	private Boolean wasRun = false;
-	private Boolean wasSetUp = false;
+	private String log;
 
 	public WasRun(String name) {
 		super(name);
-		this.wasRun = false;
 	}
 
-	public Boolean getWasRun() {
-		return wasRun;
+	public String getLog() {
+		return log;
 	}
 
+	@Override
 	public void setUp() {
-		wasRun = false;
-		wasSetUp = true;
+		log = "setUp ";
 	}
 
 	public void testMethod() {
-		wasRun = true;
+		log = log + "testMethod ";
 	}
 
-	public Boolean getWasSetUp() {
-		return wasSetUp;
+	@Override
+	public void tearDown() {
+		log = log + "tearDown ";
 	}
 }
