@@ -5,8 +5,9 @@ public class TestCaseTest {
 	public TestCaseTest(){
 		testTemplateMethod();
 		testResult();
+		testFailedResult(); 
+		testFailedResultFormatting();
 	}
-	
 	public void testTemplateMethod() {
 		WasRun test = new WasRun("testMethod");
 		test.run();
@@ -25,8 +26,15 @@ public class TestCaseTest {
 		assert ("1 run: 1 failed".equals(result.summary()));
 	}
 
+	public void testFailedResultFormatting() {
+		TestResult result = new TestResult();
+		result.testStarted();
+		result.testFailed();
+		assert ("1 run: 1 failed" == result.summary());
+	}
+
 	public static void main(String args[]) {
-		new TestCaseTest();
-		System.out.println("Done");
+	   new TestCaseTest();
+	   System.out.println("Done");		
 	}
 }

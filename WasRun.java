@@ -9,14 +9,14 @@ public class WasRun extends TestCase {
 
 	public String getLog() {
 		return log;
-	}
+	}	
 
 	public void testMethod() {
 		log = log + "testMethod ";
 	}
 
-	public void testBrokenMethod() {
-		throw new RuntimeException();
+	public void testBrokenMethod() throws Exception {
+		throw new Exception("Broken Method");
 	}
 	
 	@Override

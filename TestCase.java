@@ -17,10 +17,11 @@ public abstract class TestCase {
 			setUp();
 			Method method = this.getClass().getDeclaredMethod(this.name);
 			method.invoke(this);
-			tearDown();
 		} catch (Exception e) {
-			e.printStackTrace();
-		} 
+			result.testFailed();
+		} finally {
+			tearDown();
+		}
 		return result;
 	}
 	
