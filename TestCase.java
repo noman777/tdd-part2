@@ -9,20 +9,18 @@ public abstract class TestCase {
 		this.name = name;
 	}
 
-	public TestResult run() {
-		TestResult result = null;
+	public void run(TestResult result) {
 		try {
-			result = new TestResult();
 			result.testStarted();
 			setUp();
 			Method method = this.getClass().getDeclaredMethod(this.name);
 			method.invoke(this);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			result.testFailed();
 		} finally {
 			tearDown();
 		}
-		return result;
 	}
 	
 

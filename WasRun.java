@@ -18,12 +18,12 @@ public class WasRun extends TestCase {
 	public void testBrokenMethod() throws Exception {
 		throw new Exception("Broken Method");
 	}
-	
+
 	@Override
 	public void setUp() {
 		log = "setUp ";
 	}
-
+	
 	@Override
 	public void tearDown() {
 		log = log + "tearDown ";

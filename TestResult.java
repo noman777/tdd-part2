@@ -18,6 +18,6 @@ public class TestResult {
 	}
 
 	public String summary() {
-		return runCount + " run, " + errorCount + " failed";
+		return runCount + " run: " + errorCount + " failed";
 	}
 }
