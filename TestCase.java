@@ -9,8 +9,11 @@ public abstract class TestCase {
 		this.name = name;
 	}
 
-	public void run() {
+	public TestResult run() {
+		TestResult result = null;
 		try {
+			result = new TestResult();
+			result.testStarted();
 			setUp();
 			Method method = this.getClass().getDeclaredMethod(this.name);
 			method.invoke(this);
@@ -18,8 +21,10 @@ public abstract class TestCase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
+		return result;
 	}
 	
+
 	abstract public void setUp();
 	abstract public void tearDown();
 }

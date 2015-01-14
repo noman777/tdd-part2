@@ -11,13 +11,17 @@ public class WasRun extends TestCase {
 		return log;
 	}
 
+	public void testMethod() {
+		log = log + "testMethod ";
+	}
+
+	public void testBrokenMethod() {
+		throw new RuntimeException();
+	}
+	
 	@Override
 	public void setUp() {
 		log = "setUp ";
-	}
-
-	public void testMethod() {
-		log = log + "testMethod ";
 	}
 
 	@Override
